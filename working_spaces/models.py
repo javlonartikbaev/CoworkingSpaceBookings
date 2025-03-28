@@ -11,8 +11,9 @@ class TypeOfWorkingSpaces(models.Model):
     class Meta:
         db_table = 'type_of_working_spaces'
 
+
 class WorkingSpaces(models.Model):
-    id = models.IntegerField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name_of_space = models.CharField(max_length=100)
     type_of_space = models.ForeignKey(TypeOfWorkingSpaces, on_delete=models.PROTECT)
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена за час")
