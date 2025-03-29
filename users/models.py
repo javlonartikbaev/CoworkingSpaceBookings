@@ -12,7 +12,7 @@ class User(AbstractBaseUser):
 
     id = models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4)
     email = models.EmailField(unique=True)
-    password = models.CharField(max_length=8)
+    password = models.CharField()
     image = models.ImageField(upload_to='users/', null=True, blank=True)
     role = models.CharField(max_length=20,
                             choices=Roles.choices,
